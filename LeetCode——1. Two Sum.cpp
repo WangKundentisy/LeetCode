@@ -1,4 +1,4 @@
-## 一.题目链接：https://leetcode.com/articles/two-sum/
+一.题目链接：https://leetcode.com/articles/two-sum/
 
 二.题目大意：
 
@@ -7,7 +7,6 @@
 三.题解
 
 　　1.该题目首先最容易想到的就是暴力破解，只需要两个循环分别遍历数组；这样的话，时间复杂度为O(N2)，空间复杂度为O(1)，代码如下：
-```cpp
 int* twoSum(int* nums, int numsSize, int target) {
     int *rs = malloc(sizeof(int)*2);
     int i = 0,j = 0;
@@ -23,8 +22,7 @@ int* twoSum(int* nums, int numsSize, int target) {
             }
             return rs;
 }
-```
-　　2.由于O(N2)的时间复杂度效率太低，有没有更好的方法？我们只需想方设法优化第二个for循环即可(第一个for循环一般无法优化，因为该程序至少要遍历一次)；可以考虑利用map来进行查询，代码如下：
+2.由于O(N2)的时间复杂度效率太低，有没有更好的方法？我们只需想方设法优化第二个for循环即可(第一个for循环一般无法优化，因为该程序至少要遍历一次)；可以考虑利用map来进行查询，代码如下：
 
 vector<int> twoSum(vector<int>& nums, int target) {
     vector<int>rs;
