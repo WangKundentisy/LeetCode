@@ -1,4 +1,4 @@
-##一.题目链接：https://leetcode.com/articles/two-sum/
+## 一.题目链接：https://leetcode.com/articles/two-sum/
 
 二.题目大意：
 
@@ -47,9 +47,9 @@ vector<int> twoSum(vector<int>& nums, int target) {
     }
         return rs;
 }
-　    由于map的查找时间为O(logN)，故整个程序的时间复杂度为O(N*logN);空间复杂度为O(N)(因为程序额外利用的存储空间最大为N-1级别，即map的大小)，实质上是以空间换取时间的一种策略，方法2和方法1相比，只是第二步查询的方式变了，这种思想值得借鉴。
+由于map的查找时间为O(logN)，故整个程序的时间复杂度为O(N*logN);空间复杂度为O(N)(因为程序额外利用的存储空间最大为N-1级别，即map的大小)，实质上是以空间换取时间的一种策略，方法2和方法1相比，只是第二步查询的方式变了，这种思想值得借鉴。
 
-　　3.鉴于方法2的思想，我们还可以进一步去优化，那就是利用哈希表，c11标准中的哈希表为unordered_map，代码如下：
+3.鉴于方法2的思想，我们还可以进一步去优化，那就是利用哈希表，c11标准中的哈希表为unordered_map，代码如下：
 
 vector<int> twoSum(vector<int>& nums, int target) {
     vector<int>rs;
