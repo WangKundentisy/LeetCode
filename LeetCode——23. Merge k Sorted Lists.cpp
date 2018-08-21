@@ -1,4 +1,4 @@
-方法1：两两归并
+//方法1：两两归并
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
@@ -43,4 +43,43 @@ public:
 
 
     }
+};
+
+//方法2：利用优先队列
+class Solution {
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        if(lists.empty())
+            return nullptr;
+        priority_queue<ListNode*,vector<ListNode*>,cmp> tmp;
+        for(auto i:lists)
+        {
+            if(i)
+                tmp.push(i);
+        }
+        if(tmp.empty())//如果lists中的元素全部为空，则返回空指针
+            return nullptr;
+        ListNode* rs = tmp.top();//初始化rs
+        ListNode* q = rs;
+        tmp.pop();
+        if(q->next)
+            tmp.push(q->next);
+        while(!tmp.empty())//重复寻找K个指针中的最小值
+        {
+            ListNode* p = tmp.top();
+            q->next = p;
+            q = q->next;
+            tmp.pop();
+            if(p->next)
+                tmp.push(p->next);
+        }
+        return rs;
+    }
+    struct cmp
+    {
+        bool operator()(const ListNode* a,const ListNode *b)
+        {
+            return a->val > b->val;
+        }
+    };
 };
